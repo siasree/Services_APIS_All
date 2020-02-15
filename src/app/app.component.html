@@ -1,0 +1,110 @@
+<h1>get method for external API</h1>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>PostId</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Body</th>
+    </tr>
+    <tr *ngFor="let com of lstComments">
+        <td>{{com.id}}</td>
+        <td>{{com.postId}}</td>
+        <td>{{com.name}}</td>
+        <td>{{com.email}}</td>
+        <td>{{com.body}}</td>
+    </tr>
+</table>
+
+<br>
+<br>
+<h2>get request Using parametres(" http://jsonplaceholder.typicode.com/posts?userId=1")</h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>UserId</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    <tr *ngFor="let pos of lstPosts">
+        <td>{{pos.id}}</td>
+        <td>{{pos.userId}}</td>
+        <td>{{pos.title}}</td>
+        <td>{{pos.body}}</td>
+    </tr>
+</table>
+<br>
+<br>
+<h1>post method by external API:</h1>
+<p>Id:{{objPosts.id}}</p>
+<p>UserId:{{objPosts.userId}}</p>
+<p>Title:{{objPosts.title}}</p>
+<p>Body:{{objPosts.body}}</p>
+<br>
+<br>
+<h1>put method by external API:</h1>
+<p>Id:{{objPuts.id}}</p>
+<p>UserId:{{objPuts.userId}}</p>
+<p>Title:{{objPuts.title}}</p>
+<p>Body:{{objPuts.body}}</p>
+<br>
+<br>
+<h1>Patch method is used for existing copy</h1>
+<p>Id:{{objPatchs.id}}</p>
+<p>UserId:{{objPatchs.userId}}</p>
+<p>Title:{{objPatchs.title}}</p>
+<p>Body:{{objPatchs.body}}</p>
+<br>
+<br>
+<h1>Delete method:</h1>
+<p>Message:{{message}}</p>
+<br>
+<br>
+<h1>DataFiltering</h1>
+<div class="sel" style="width: 500px;margin: auto;padding: 10px;border: 3px solid green;">
+    <select [(ngModel)]="AlbumSelected" (ngModelChange)="onAlbumSelected($event)">
+        <option *ngFor="let album of lstAlbums" [value]="album.id">{{album.title}}</option>
+    </select>
+</div>
+<p>the selected album id is::{{AlbumSelected}}</p>
+
+<br>
+<table>
+    <tr>
+
+        <th>
+            Id
+        </th>
+        <th>
+            albumId
+        </th>
+        <th>
+            title
+        </th>
+        <th>
+            url
+        </th>
+        <th>
+            thumbnailUrl
+        </th>
+    </tr>
+    <tr>
+        <tr *ngFor="let photos of lstPhotos">
+
+            <td>
+                {{photos.id}}
+            </td>
+            <td>
+                {{photos.albumId}}
+            </td>
+            <td>
+                {{photos.title}}
+            </td>
+            <td>
+                {{photos.url}}
+            </td>
+            <td>
+                <img src="{{photos.thumbnailUrl}}" alt="">
+            </td>
+        </tr>
+</table>
